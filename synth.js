@@ -4,7 +4,7 @@ let isPlaying = false;
 
 button.addEventListener('click', () => {
 	if (!isPlaying) {
-		readText();
+		readText(text.value);
 		isPlaying = true;
 	}
 });
@@ -21,16 +21,58 @@ function delay(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function readText() {
-	let textValue = text.value.toUpperCase();
-	for (let i = 0; i < textValue.length; i++) {
-		playLetter(textValue[i]);
-		await delay(100);
-	}
+async function readText(paragraph) {
+	const text = parseParagraph(paragraph);
+	// getPronunciation(encodedSentence).then(console.log).catch(console.error);
+
+	// for (let i = 0; i < textValue.length; i++) {
+	// 	playLetter(textValue[i]);
+	// 	await delay(100);
+	// }
 	await delay(500);
 	isPlaying = false;
 }
 
+function parseParagraph(paragraph) {
+	const sentences = splitOnPunctuation(paragraph);
+	let text = new Map();
+	
+	for (let i = 0; i < sentences.length; i++) {
+		let sentence = sentences[i];
+		let punctuation = sentence.charAt(sentence.length - 1);
+		if (isLetter(punctuation)) {
+			punctuation = ".";
+		}
+		else {
+			sentence = sentence.slice(0, -1);
+		}
+
+		const words = sentence.split(" ");
+		text.set(i, { words, punctuation });
+		console.log("New sentence:", text.get(i));
+	}
+	
+	return text;
+}
+
+function splitOnPunctuation(str) {
+	return str.split(/[.,!?;:]+/);
+}
+
+function isLetter(str) {
+	return str.length === 1 && str.toLowerCase() != str.toUpperCase();
+}
+
+
+async function getPronunciation(word) {
+	const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+	if (response.ok) {
+		const data = await response.json();
+		return data[0].phonetics[0]?.text || "Pronunciation not available";
+	} else {
+		throw new Error("Word not found");
+	}
+}
 
 
 const phonetics = {
