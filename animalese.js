@@ -3,42 +3,40 @@ const button = document.getElementById('readText');
 let isPlaying = false;
 
 const letters = [
-	new Audio('audio/A.mp3'),
-	new Audio('audio/B.mp3'),
-	new Audio('audio/C.mp3'),
-	new Audio('audio/D.mp3'),
-	new Audio('audio/E.mp3'),
-	new Audio('audio/F.mp3'),
-	new Audio('audio/G.mp3'),
-	new Audio('audio/H.mp3'),
-	new Audio('audio/I.mp3'),
-	new Audio('audio/J.mp3'),
-	new Audio('audio/K.mp3'),
-	new Audio('audio/L.mp3'),
-	new Audio('audio/M.mp3'),
-	new Audio('audio/N.mp3'),
-	new Audio('audio/O.mp3'),
-	new Audio('audio/P.mp3'),
-	new Audio('audio/Q.mp3'),
-	new Audio('audio/R.mp3'),
-	new Audio('audio/S.mp3'),
-	new Audio('audio/T.mp3'),
-	new Audio('audio/U.mp3'),
-	new Audio('audio/V.mp3'),
-	new Audio('audio/W.mp3'),
-	new Audio('audio/X.mp3'),
-	new Audio('audio/Y.mp3'),
-	new Audio('audio/Z.mp3')
-]
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/A.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/B.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/C.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/D.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/E.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/F.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/G.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/H.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/I.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/J.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/K.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/L.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/M.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/N.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/O.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/P.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/Q.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/R.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/S.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/T.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/U.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/V.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/W.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/X.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/Y.mp3',
+	'https://raw.githubusercontent.com/Niimphu/niimphu.github.io/main/audio/Z.mp3'
+];
 
 let letterAudio = [];
 
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const context = new AudioContext();
 
-
 button.addEventListener('click', () => {
-
 	if (context.state === "suspended") {
 		setup();
 		context.resume();
@@ -50,10 +48,14 @@ button.addEventListener('click', () => {
 	}
 });
 
-function setup() {
-	letterAudio = letters.map(letter => context.createMediaElementSource(letter));
+async function setup() {
+	letterAudio = await Promise.all(letters.map(url => loadAudio(url)));
+}
 
-	letterAudio.forEach(source => source.connect(context.destination)); //??
+async function loadAudio(url) {
+	const response = await fetch(url);
+	const arrayBuffer = await response.arrayBuffer();
+	return await context.decodeAudioData(arrayBuffer);
 }
 
 function delay(ms) {
@@ -72,10 +74,10 @@ async function readText(text) {
 				playLetter(letter);
 			}
 			else {
-				await delay(150);
+				await delay(50);
 			}
 
-			await delay(100);
+			await delay(80);
 		}
 		await delay(250);
 	}
