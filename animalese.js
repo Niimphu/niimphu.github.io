@@ -38,8 +38,8 @@ const context = new AudioContext();
 
 button.addEventListener('click', () => {
 	if (context.state === "suspended") {
-		setup();
 		context.resume();
+		setup();
 	}
 
 	if (!isPlaying) {
@@ -50,6 +50,7 @@ button.addEventListener('click', () => {
 
 async function setup() {
 	letterAudio = await Promise.all(letters.map(url => loadAudio(url)));
+	delay(100);
 }
 
 async function loadAudio(url) {
@@ -67,19 +68,19 @@ async function readText(text) {
 
 	for (let i = 0; i < sentences.length; i++) {
 		console.log(sentences[i]);
-		for (let j = 0; j < sentences[i].length; j++) {
+		const len = sentences[i].length;
+		for (let j = 0; j < len; j++) {
 			const letter = sentences[i].charAt(j).toLowerCase();
 
 			if (isLetter(letter)) {
 				playLetter(letter);
 			}
 			else {
-				await delay(50);
+				await delay(0); // additional delay between words
 			}
-
-			await delay(80);
+			await delay(25); // delay between letters
 		}
-		await delay(250);
+		await delay(250); // delay between sentences
 	}
 	await delay(250);
 	isPlaying = false;
@@ -91,6 +92,7 @@ function playLetter(letter) {
 	if (i >= 0 && i < letterAudio.length) {
 		const source = context.createBufferSource();
 		source.buffer = letterAudio[i];
+		source.playbackRate.value = 0.7;
 		source.connect(context.destination);
 		source.start();
 		console.log("playing: " + letter);
