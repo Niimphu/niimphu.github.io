@@ -70,6 +70,18 @@ main {
 	margin: 40px;
 }
 
+.project {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.gif {
+	width: 100%;
+	max-width: 480px;
+	margin: 8px;
+}
+
 h1, h5 {
 	font-weight: 400;
 }
