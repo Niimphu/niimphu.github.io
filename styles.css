@@ -1,48 +1,108 @@
+@import './dropdown.css';
+
 body {
 	font-family: 'Montserrat', sans-serif;
+	margin: 20px;
+}
+
+.real-body {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	align-items: center;
+	width: 100%;
+	max-width: 1280px;
+	background-color: lavender;
+}
+
+.title-box {
+	display: flex;
+	flex-wrap: wrap;
+	justify-self: center;
+	align-self: center;
+	justify-content: center;
+	width: fit-content;
+	background-color: white;
+	padding: 40px;
+	margin: 20px;
+}
+
+.main-box {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	background-color: white;
+	margin: 20px;
+	padding: 40px;
+}
+
+
+.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	justify-content: center;
+}
+
+.title h1 {
+	text-align: center;
+	margin: 10px;
+}
+
+.title h5 {
 	margin: 0;
+}
+
+.pfp {
+	border-radius: 50%;
+	width: 100em;
+	max-width: 200px;
 }
 
 main {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	justify-content: center;
+	max-width: 1080px;
 	margin: 40px;
 }
 
-h1 {
+h1, h5 {
 	font-weight: 400;
 }
 
+.custom-header {
+	width: 100%;
+	max-width: 1280px;
+}
+
 .navbar {
-	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
 	background-color: #333;
+	width: 100%;
+	max-width: 1280px;
+	justify-self: center;
 	margin: 0;
 	padding: 0;
 }
 
-.center {
-	margin: auto;
+.right {
+	display: flex;
+	float: right;
 }
 
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
-}
-
-li {
-	float: left;
-}
-
-li a {
+.navbar a, .right a {
 	display: block;
 	color: white;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 }
-  
-  /* Change the link color to #111 (black) on hover */
-li a:hover {
+
+.navbar a:hover, .right a:hover {
 	background-color: #111;
 }

@@ -76,9 +76,9 @@ async function readText(text) {
 				playLetter(letter);
 			}
 			else {
-				await delay(0); // additional delay between words
+				await delay(10); // additional delay between words
 			}
-			await delay(25); // delay between letters
+			await delay(30); // delay between letters
 		}
 		await delay(250); // delay between sentences
 	}
