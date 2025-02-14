@@ -194,6 +194,10 @@ h1, h5 {
 	color: white;
 }
 
+.socials {
+	margin-top: 8px;
+}
+
 .socials .btn {
 	text-decoration: none;
 }
