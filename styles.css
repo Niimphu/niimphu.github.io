@@ -72,14 +72,48 @@ main {
 
 .project {
 	display: flex;
-	flex-wrap: wrap;
-	margin-bottom: 20px;
+	flex-direction: column;
+	align-items: center;
+}
+
+.project-text {
+	order: 1;
+}
+
+.project-image {
+	order: 2;
+}
+
+.project-buttons {
+	display: flex;
+	order: 3;
 }
 
 .gif {
 	width: 100%;
 	max-width: 480px;
 	margin: 8px;
+}
+
+@media (min-width: 1200px) {
+	.project {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 10px;
+		align-items: start;
+	}
+	.project-text {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	.project-buttons {
+		grid-column: 1;
+		grid-row: 2;
+	}
+	.project-image {
+		grid-column: 2;
+		grid-row: 1 / 3;
+	}
 }
 
 h1, h5 {
