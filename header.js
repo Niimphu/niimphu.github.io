@@ -8,13 +8,7 @@ class Header extends HTMLElement {
 			<nav class="navbar">
 				<a href="index.html">Home</a>
 				<div class="right">
-					<div class="dropdown">
-						<button class="dropbtn">Mini Apps</button>
-						<div class="dropdown-content">
-							<a href="animalese.html">Animalese Generator</a>
-							<a href="#">Untrue Random</a>
-						</div>
-					</div>
+					
 				</div>
 			</nav>
 		`;
@@ -22,3 +16,11 @@ class Header extends HTMLElement {
 	}
 	
 customElements.define('custom-header', Header);
+
+{/* <div class="dropdown">
+	<button class="dropbtn">Mini Apps</button>
+	<div class="dropdown-content">
+		<a href="animalese.html">Animalese Generator</a>
+		<a href="#">Untrue Random</a>
+	</div>
+</div> */}
