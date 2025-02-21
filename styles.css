@@ -91,7 +91,7 @@ main {
 }
 
 .project-buttons button, .project-buttons-reverse button {
-	padding: 4px 2px 4px 16px;
+	padding: 2px 2px 2px 16px;
 	margin: 4px;
 	color: white;
 	text-decoration: none;
@@ -163,7 +163,11 @@ main {
 	}
 }
 
-h1, h5 {
+h1 {
+	font-weight: 500;
+}
+
+h5 {
 	font-weight: 400;
 }
 
@@ -200,7 +204,7 @@ h1, h5 {
 	background-color: #111;
 }
 
-.fa {
+.fa, .fa-brands, .fa-solid {
 	border-radius: 50%;
 	margin: 4px;
 	padding: 8px;
