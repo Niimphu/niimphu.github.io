@@ -223,8 +223,10 @@ h5 {
 	text-decoration: none;
 }
 
-.fa:hover {
-	opacity: 0.8;
+.fa:hover, .fa-brands:hover {
+	opacity: 0.9;
+	scale: 1.15;
+	transition: scale 0.3s;
 }
 
 .fa-github {
