@@ -167,8 +167,20 @@ h1 {
 	font-weight: 500;
 }
 
+h4 {
+	margin: 4px 0;
+}
+
 h5 {
 	font-weight: 400;
+	margin: 4px 0;
+}
+
+h6 {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	margin: 2px 0;
 }
 
 .custom-header {
@@ -185,6 +197,11 @@ h5 {
 	justify-self: center;
 	margin: 0;
 	padding: 0;
+}
+
+.left {
+	display: flex;
+	float: left;
 }
 
 .right {
@@ -247,4 +264,13 @@ h5 {
 	border-top: 2px solid #968ebe33;
 	border-radius: 1px;
 	margin: 36px;
+}
+
+.contacts {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+	margin: 16px;
 }
