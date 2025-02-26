@@ -174,6 +174,7 @@ h4 {
 
 h5 {
 	font-weight: 400;
+	font-size: 16px;
 	margin: 4px 0;
 }
 
@@ -274,4 +275,14 @@ h6 {
 	align-items: center;
 	justify-content: center;
 	margin: 16px;
+}
+
+.skills li {
+	font-size: 14px;
+}
+
+.skills-list {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 16px;
 }
