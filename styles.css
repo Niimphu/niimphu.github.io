@@ -286,3 +286,26 @@ h6 {
 	grid-template-columns: auto auto auto;
 	gap: 16px;
 }
+
+.fade-in, .fade-in-2, .fade-in-3 {
+	opacity: 1;
+	transform: translateY(0);
+	transition-property: opacity, transform;
+	transition-duration: 0.5s;
+	transition-timing-function: none;
+}
+
+.fade-in-2 {
+	transition-delay: 0.15s;
+}
+
+.fade-in-3 {
+	transition-delay: 0.3s;
+}
+
+@starting-style {
+	.fade-in, .fade-in-2, .fade-in-3 {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+}
