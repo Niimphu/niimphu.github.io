@@ -8,7 +8,7 @@ class Header extends HTMLElement {
 			<nav class="navbar">
 				<div class="left">
 					<a href="index.html">Home</a>
-					<a href="CV.html">CV</a>
+					<a href="cv.html">CV</a>
 					</div>
 					<div class="right">
 					
