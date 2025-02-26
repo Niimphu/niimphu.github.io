@@ -81,6 +81,7 @@ main {
 }
 
 .project-image, .project-image-reverse {
+	align-self: center;
 	margin-top: 16px;
 	order: 2;
 }

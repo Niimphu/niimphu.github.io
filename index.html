@@ -54,11 +54,13 @@
 					</h3>
 					<div class="project">
 						<p class="project-text">
-							For the Yogscast Jingle Game Jam 2024, I designed gameplay and wrote code for "Avarice", a 2D shooting game where the player must fight demons and try to collect money.
-							The game features a unique mechanic where money is needed for all player actions; reloading, dodging, and abilities, and it also counts as the player's "health".
-							<br>
-							I am proud to say that our entry won the award for "Best Use of Theme" by a unanimous decision from the judges.
-							It was a truly rewarding project—we created an intuitive, fun game with a well-defined scope, and coordinating a team of strangers across different time zones was an exciting new challenge.
+							For the Yogscast Jingle Game Jam 2024, I designed gameplay and wrote code for "Avarice", a 2D shooting game built in Godot.
+							The game features a mechanic where money is needed for all player actions; reloading, dodging, and even taking damage, and I am proud to say that our entry won the award for "Best Use of Theme" by a unanimous decision from the judges.
+							<br><br>
+							One of the bigger challenges was balancing the economy in the game.
+							Although there wasn't time to get the feel perfect, I implemented some ways to make the gameplay more engaging, of which the biggest was:
+							bullets can pierce one enemy by default, and secondary enemies drop increasingly more money;
+							hitting only one enemy results in a net loss when reloading, but hitting two results in net profit, encouraging players to hit satisfying line-ups.	
 						</p>
 						<div class="project-image">
 							<img class="gif" src="image/Avarice.gif">
@@ -91,7 +93,7 @@
 						<p class="project-text-reverse">
 							As part of the 42 curriculum, I developed "miniRT" with a fellow student, a simple raytracer in C that can render 3D scenes with realistic lighting and colours.
 							Although it is widely considered to be the more difficult of the two options for this mandatory project, we opted for miniRT because it seemed much cooler and had more for us to learn from.
-							<br>
+							<br><br>
 							My responsibilities included the implementation of the raytracing algorithm for some complex shapes, coloured lighting calculations, and some of our own additional features to improve the output.
 							Since the graphics library provided was rudimentary and required us to calculate and draw each pixel, once I added recursive reflections and anti-aliasing, the program performed very poorly.
 							Due to this, I implemented multi-threading, which improved the rendering speed of complex scenes by up to 500%.
@@ -102,8 +104,12 @@
 						<p class="project-text">
 							The first game jam where I created a game that I would call playable was the Godot Wild Jam #75.
 							The theme of the jam was "Reflections", and we decided to create a point-and-click shooting game called "Silver Sniper", where the player plays a vampire hitman who must use the reflections (or lack thereof) in the windows to identify and take out vampires.
-							<br>
-							Our end product was reminiscent of old browser flash games, but was received very well by other jam participants due to the intuitive and fun gameplay, and came in 4th place after peer voting.
+							<br><br>
+							Initially, when brainstorming the idea, I wanted to use shaders to create the reflections.
+							However, with my limited knowledge of shaders, I couldn't figure out how to reflect in my desired plane.
+							Therefore, I ended up using a simple sprite copy that would have its vertical Y and scale controlled by code separately.
+							<br><br>
+							Our end product was reminiscent of old browser flash games, but was received very well by other jam participants due to the intuitive gameplay and fun theme implementation, and came in 4th place after peer voting.
 						</p>
 						<div class="project-image">
 							<img class="gif" src="image/SilverSniper.gif">
