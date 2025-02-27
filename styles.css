@@ -281,6 +281,10 @@ h6 {
 	font-size: 14px;
 }
 
+.skills ul {
+	padding-left: 22px;
+}
+
 .skills-list {
 	display: grid;
 	grid-template-columns: auto auto auto;
